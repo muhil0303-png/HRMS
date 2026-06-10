@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HRMS Dashboard</title>
-    <!-- Inter Font -->
+    <!-- Google Fonts (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,39 +14,41 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="app-container">
+    <div class="dashboard-container">
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-brand">
-                <i class="fa-solid fa-people-roof"></i>
+                <i class="fas fa-users-cog"></i>
                 <span>HRMS Portal</span>
             </div>
             <nav class="sidebar-menu">
-                <a href="#" class="menu-item active"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
-                <a href="#" class="menu-item"><i class="fa-solid fa-users"></i> Employees</a>
-                <a href="#" class="menu-item"><i class="fa-solid fa-calendar-check"></i> Attendance</a>
-                <a href="#" class="menu-item"><i class="fa-solid fa-file-invoice-dollar"></i> Payroll</a>
-                <a href="#" class="menu-item"><i class="fa-solid fa-plane-departure"></i> Leave</a>
-                <a href="#" class="menu-item"><i class="fa-solid fa-gear"></i> Settings</a>
+                <ul>
+                    <li class="active"><a href="#"><i class="fas fa-chart-pie"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-user-friends"></i> Employees</a></li>
+                    <li><a href="#"><i class="fas fa-calendar-check"></i> Attendance</a></li>
+                    <li><a href="#"><i class="fas fa-plane-departure"></i> Leaves</a></li>
+                    <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Payroll</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
             </nav>
         </aside>
 
         <!-- Main Content Area -->
-        <div class="main-wrapper">
+        <main class="main-content">
             <!-- Header -->
-            <header class="header">
+            <header class="main-header">
                 <div class="search-bar">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search for employees, documents, tasks...">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search employees, documents, tasks...">
                 </div>
-                <div class="header-actions">
-                    <button class="icon-btn" aria-label="Notifications">
-                        <i class="fa-regular fa-bell"></i>
-                        <span class="badge"></span>
-                    </button>
-                    <div class="user-profile">
+                <div class="header-profile">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-info">
                         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="User Avatar" class="avatar">
-                        <div class="user-info">
+                        <div class="user-details">
                             <span class="user-name">Sarah Jenkins</span>
                             <span class="user-role">HR Administrator</span>
                         </div>
@@ -54,141 +56,157 @@
                 </div>
             </header>
 
-            <!-- Main Content -->
-            <main class="main-content">
-                <div class="welcome-section">
-                    <h1>Welcome back, Sarah</h1>
-                    <p>Here's what's happening with your organization today.</p>
+            <!-- Dashboard Content -->
+            <div class="content-body">
+                <div class="welcome-banner">
+                    <div class="welcome-text">
+                        <h1>Welcome back, Sarah!</h1>
+                        <p>Here's what's happening with your workforce today.</p>
+                    </div>
+                    <div class="current-date">
+                        <i class="far fa-calendar-alt"></i>
+                        <span id="date-string">October 24, 2023</span>
+                    </div>
                 </div>
 
                 <!-- Stats Grid -->
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-icon bg-blue">
-                            <i class="fa-solid fa-users"></i>
+                        <div class="stat-icon blue">
+                            <i class="fas fa-users"></i>
                         </div>
-                        <div class="stat-details">
-                            <h3>Total Employees</h3>
-                            <p class="stat-number">324</p>
-                            <span class="stat-trend positive"><i class="fa-solid fa-arrow-up"></i> 12% this month</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon bg-green">
-                            <i class="fa-solid fa-user-check"></i>
-                        </div>
-                        <div class="stat-details">
-                            <h3>Present Today</h3>
-                            <p class="stat-number">298</p>
-                            <span class="stat-trend positive"><i class="fa-solid fa-arrow-up"></i> 92% attendance rate</span>
+                        <div class="stat-info">
+                            <h3>154</h3>
+                            <p>Total Employees</p>
                         </div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon bg-orange">
-                            <i class="fa-solid fa-clock"></i>
+                        <div class="stat-icon green">
+                            <i class="fas fa-user-check"></i>
                         </div>
-                        <div class="stat-details">
-                            <h3>Leave Requests</h3>
-                            <p class="stat-number">8</p>
-                            <span class="stat-trend warning">3 pending approval</span>
+                        <div class="stat-info">
+                            <h3>142</h3>
+                            <p>Active Now</p>
                         </div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon bg-purple">
-                            <i class="fa-solid fa-briefcase"></i>
+                        <div class="stat-icon orange">
+                            <i class="fas fa-calendar-times"></i>
                         </div>
-                        <div class="stat-details">
-                            <h3>Open Positions</h3>
-                            <p class="stat-number">14</p>
-                            <span class="stat-trend positive">5 active campaigns</span>
+                        <div class="stat-info">
+                            <h3>8</h3>
+                            <p>On Leave Today</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>12</h3>
+                            <p>Pending Requests</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Dashboard Grid -->
+                <!-- Main Grid (Table + Quick Actions) -->
                 <div class="dashboard-grid">
-                    <!-- Recent Activity -->
-                    <div class="card">
+                    <div class="card table-card">
                         <div class="card-header">
-                            <h2>Recent Activity</h2>
-                            <button class="btn-text">View All</button>
+                            <h2>Recent Leave Requests</h2>
+                            <a href="#" class="btn-link">View All</a>
                         </div>
-                        <div class="activity-list">
-                            <div class="activity-item">
-                                <div class="activity-marker bg-blue"></div>
-                                <div class="activity-content">
-                                    <p class="activity-text"><strong>John Doe</strong> signed the employment contract.</p>
-                                    <span class="activity-time">10 minutes ago</span>
-                                </div>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-marker bg-green"></div>
-                                <div class="activity-content">
-                                    <p class="activity-text"><strong>Jane Smith</strong> requested leave for 3 days.</p>
-                                    <span class="activity-time">1 hour ago</span>
-                                </div>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-marker bg-purple"></div>
-                                <div class="activity-content">
-                                    <p class="activity-text">New job posting published: <strong>Senior React Developer</strong>.</p>
-                                    <span class="activity-time">4 hours ago</span>
-                                </div>
-                            </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Employee</th>
+                                        <th>Leave Type</th>
+                                        <th>Duration</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="table-user">
+                                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80" alt="Avatar">
+                                                <span>Marcus Vance</span>
+                                            </div>
+                                        </td>
+                                        <td>Annual Leave</td>
+                                        <td>3 Days (Oct 26-28)</td>
+                                        <td><span class="status-badge pending">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="table-user">
+                                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80" alt="Avatar">
+                                                <span>Elena Rostova</span>
+                                            </div>
+                                        </td>
+                                        <td>Sick Leave</td>
+                                        <td>1 Day (Oct 24)</td>
+                                        <td><span class="status-badge approved">Approved</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="table-user">
+                                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&q=80" alt="Avatar">
+                                                <span>David Kim</span>
+                                            </div>
+                                        </td>
+                                        <td>Maternity/Paternity</td>
+                                        <td>2 Weeks (Nov 1-14)</td>
+                                        <td><span class="status-badge approved">Approved</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
 
-                    <!-- Quick Actions -->
-                    <div class="card">
+                    <div class="card quick-actions-card">
                         <div class="card-header">
                             <h2>Quick Actions</h2>
                         </div>
-                        <div class="quick-actions-grid">
-                            <button class="action-btn">
-                                <i class="fa-solid fa-user-plus"></i>
-                                <span>Add Employee</span>
-                            </button>
-                            <button class="action-btn">
-                                <i class="fa-solid fa-calendar-plus"></i>
-                                <span>Log Attendance</span>
-                            </button>
-                            <button class="action-btn">
-                                <i class="fa-solid fa-file-signature"></i>
-                                <span>Approve Leave</span>
-                            </button>
-                            <button class="action-btn">
-                                <i class="fa-solid fa-receipt"></i>
-                                <span>Run Payroll</span>
-                            </button>
+                        <div class="actions-list">
+                            <button class="action-btn"><i class="fas fa-user-plus"></i> Add New Employee</button>
+                            <button class="action-btn"><i class="fas fa-file-medical"></i> Create Leave Request</button>
+                            <button class="action-btn"><i class="fas fa-receipt"></i> Generate Payroll</button>
+                            <button class="action-btn"><i class="fas fa-bullhorn"></i> Post Announcement</button>
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
 
             <!-- Footer -->
-            <footer class="footer">
-                <div class="footer-container">
-                    <div class="footer-left">
-                        <p class="copyright">&copy; 2024 HRMS Portal. All rights reserved.</p>
-                    </div>
-                    <div class="footer-center">
-                        <ul class="footer-links">
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Service</a></li>
-                            <li><a href="#">Support</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-right">
-                        <div class="social-icons">
-                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <footer class="dashboard-footer">
+                <div class="footer-content">
+                    <p class="copyright">&copy; 2023 HRMS Portal. All rights reserved.</p>
+                    <div class="tech-stack-container">
+                        <span class="tech-stack-title">Powered by:</span>
+                        <div class="tech-badges">
+                            <div class="tech-badge html5" title="HTML5">
+                                <i class="fab fa-html5"></i>
+                                <span>HTML5</span>
+                            </div>
+                            <div class="tech-badge css3" title="CSS3">
+                                <i class="fab fa-css3-alt"></i>
+                                <span>CSS3</span>
+                            </div>
+                            <div class="tech-badge font-awesome" title="Font Awesome">
+                                <i class="fab fa-font-awesome"></i>
+                                <span>Font Awesome</span>
+                            </div>
+                            <div class="tech-badge google-fonts" title="Google Fonts (Inter)">
+                                <i class="fas fa-font"></i>
+                                <span>Inter (Google Fonts)</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </footer>
-        </div>
+        </main>
     </div>
 </body>
 </html>
