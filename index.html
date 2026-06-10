@@ -4,541 +4,203 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HRMS Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="dashboard-container">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-brand">
-                <div class="brand-logo">
-                    <i class="fa-solid fa-layer-group"></i>
-                </div>
-                <h2>HRMShub</h2>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <i class="fa-solid fa-people-roof"></i>
+            <span>HRMS Portal</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item active">
+                <a href="#"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#"><i class="fa-solid fa-users"></i> Employees</a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#"><i class="fa-solid fa-calendar-check"></i> Attendance</a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#"><i class="fa-solid fa-plane-departure"></i> Leave Requests</a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#"><i class="fa-solid fa-file-invoice-dollar"></i> Payroll</a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#"><i class="fa-solid fa-gears"></i> Settings</a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass text-muted"></i>
+                <input type="text" placeholder="Search employees, documents, tasks...">
             </div>
-            <nav class="sidebar-menu">
-                <ul>
-                    <li class="active">
-                        <a href="#">
-                            <i class="fa-solid fa-chart-pie"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-users"></i>
-                            <span>Employees</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-calendar-check"></i>
-                            <span>Attendance</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-plane-departure"></i>
-                            <span>Leave Requests</span>
-                            <span class="badge badge-danger">15</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-sitemap"></i>
-                            <span>Departments</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-file-invoice-dollar"></i>
-                            <span>Payroll</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-bullhorn"></i>
-                            <span>Announcements</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-gear"></i>
-                            <span>Settings</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="sidebar-footer">
-                <div class="user-quick-info">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Admin Avatar" class="avatar">
-                    <div class="info">
-                        <h4>Sarah Jenkins</h4>
-                        <p>HR Director</p>
+            <div class="header-actions">
+                <button class="notification-btn">
+                    <i class="fa-regular fa-bell fa-lg"></i>
+                    <span class="notification-badge"></span>
+                </button>
+                <div class="user-profile">
+                    <div class="user-avatar">JD</div>
+                    <div class="user-info">
+                        <div class="user-name">Jane Doe</div>
+                        <div class="user-role">HR Administrator</div>
                     </div>
                 </div>
-                <a href="#" class="logout-btn">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <span>Logout</span>
-                </a>
             </div>
-        </aside>
+        </header>
 
-        <!-- Main Content Area -->
-        <main class="main-content">
-            <!-- Header -->
-            <header class="header">
-                <div class="header-left">
-                    <button class="menu-toggle" id="menuToggle">
-                        <i class="fa-solid fa-bars"></i>
-                    </button>
-                    <div class="search-bar">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" placeholder="Search employees, documents, activities...">
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <h1>Welcome back, Jane!</h1>
+                <p>Here's what's happening with your workforce today.</p>
+            </section>
+
+            <!-- Stats Grid -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Total Employees</h3>
+                        <div class="stat-value">384</div>
+                    </div>
+                    <div class="stat-icon blue">
+                        <i class="fa-solid fa-users"></i>
                     </div>
                 </div>
-                <div class="header-right">
-                    <button class="icon-btn" title="Notifications">
-                        <i class="fa-regular fa-bell"></i>
-                        <span class="notification-dot"></span>
-                    </button>
-                    <button class="icon-btn" title="Messages">
-                        <i class="fa-regular fa-envelope"></i>
-                        <span class="notification-dot"></span>
-                    </button>
-                    <div class="header-divider"></div>
-                    <div class="user-profile">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Admin Avatar" class="avatar">
-                        <div class="profile-details">
-                            <span class="profile-name">Sarah Jenkins</span>
-                            <span class="profile-role">HR Director <i class="fa-solid fa-chevron-down"></i></span>
-                        </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Present Today</h3>
+                        <div class="stat-value">342</div>
+                    </div>
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-user-check"></i>
                     </div>
                 </div>
-            </header>
-
-            <!-- Dashboard Body -->
-            <div class="dashboard-body">
-                <!-- Welcome Section -->
-                <div class="welcome-section">
-                    <div class="welcome-text">
-                        <h1>Welcome Back, Sarah!</h1>
-                        <p>Here's what's happening with your workforce today.</p>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>On Leave</h3>
+                        <div class="stat-value">12</div>
                     </div>
-                    <div class="welcome-actions">
-                        <button class="btn btn-secondary">
-                            <i class="fa-solid fa-download"></i> Export Report
+                    <div class="stat-icon yellow">
+                        <i class="fa-solid fa-user-clock"></i>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Open Positions</h3>
+                        <div class="stat-value">8</div>
+                    </div>
+                    <div class="stat-icon red">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Recent Activity / Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Recent Leave Requests</h2>
+                        <a href="#" style="color: var(--primary); text-decoration: none; font-size: 0.875rem; font-weight: 500;">View All</a>
+                    </div>
+                    <div class="table-container">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Employee</th>
+                                    <th>Type</th>
+                                    <th>Dates</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Marcus Aurelius</td>
+                                    <td>Annual Leave</td>
+                                    <td>Oct 12 - Oct 15</td>
+                                    <td><span class="badge success">Approved</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Serena Williams</td>
+                                    <td>Sick Leave</td>
+                                    <td>Oct 14 - Oct 14</td>
+                                    <td><span class="badge success">Approved</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Albert Einstein</td>
+                                    <td>Personal Leave</td>
+                                    <td>Oct 18 - Oct 20</td>
+                                    <td><span class="badge" style="background-color: #fef3c7; color: #d97706;">Pending</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Quick Actions / Info -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Quick Actions</h2>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <button style="width: 100%; padding: 0.75rem; background-color: var(--primary); color: white; border: none; border-radius: var(--radius); font-weight: 600; cursor: pointer; transition: var(--transition);" onmouseover="this.style.backgroundColor='var(--primary-hover)'" onmouseout="this.style.backgroundColor='var(--primary)'">
+                            <i class="fa-solid fa-user-plus" style="margin-right: 0.5rem;"></i> Add New Employee
                         </button>
-                        <button class="btn btn-primary">
-                            <i class="fa-solid fa-plus"></i> Add Employee
+                        <button style="width: 100%; padding: 0.75rem; background-color: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); font-weight: 600; cursor: pointer; transition: var(--transition);" onmouseover="this.style.backgroundColor='var(--background)'" onmouseout="this.style.backgroundColor='var(--surface)'">
+                            <i class="fa-solid fa-file-export" style="margin-right: 0.5rem;"></i> Export Payroll Report
                         </button>
-                    </div>
-                </div>
-
-                <!-- Metrics Grid -->
-                <div class="metrics-grid">
-                    <!-- Card 1: Total Employees -->
-                    <div class="metric-card">
-                        <div class="card-header">
-                            <div class="card-icon icon-primary">
-                                <i class="fa-solid fa-users"></i>
-                            </div>
-                            <span class="trend trend-up">
-                                <i class="fa-solid fa-arrow-up"></i> 4.2%
-                            </span>
-                        </div>
-                        <div class="card-body">
-                            <h3>1,248</h3>
-                            <p>Total Employees</p>
-                        </div>
-                        <div class="card-footer">
-                            <span>12 new joined this month</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 2: Present Today -->
-                    <div class="metric-card">
-                        <div class="card-header">
-                            <div class="card-icon icon-success">
-                                <i class="fa-solid fa-user-check"></i>
-                            </div>
-                            <span class="trend trend-up">
-                                <i class="fa-solid fa-arrow-up"></i> 1.8%
-                            </span>
-                        </div>
-                        <div class="card-body">
-                            <h3>1,154</h3>
-                            <p>Present Today</p>
-                        </div>
-                        <div class="card-footer">
-                            <span>92.5% Attendance rate</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: On Leave -->
-                    <div class="metric-card">
-                        <div class="card-header">
-                            <div class="card-icon icon-warning">
-                                <i class="fa-solid fa-plane-departure"></i>
-                            </div>
-                            <span class="trend trend-down">
-                                <i class="fa-solid fa-arrow-down"></i> 0.5%
-                            </span>
-                        </div>
-                        <div class="card-body">
-                            <h3>32</h3>
-                            <p>On Leave</p>
-                        </div>
-                        <div class="card-footer">
-                            <span>12 planned leaves today</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 4: Pending Requests -->
-                    <div class="metric-card">
-                        <div class="card-header">
-                            <div class="card-icon icon-danger">
-                                <i class="fa-solid fa-clock-rotate-left"></i>
-                            </div>
-                            <span class="badge badge-danger-light">Action Required</span>
-                        </div>
-                        <div class="card-body">
-                            <h3>15</h3>
-                            <p>Pending Requests</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="text-danger">4 urgent requests pending</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Middle Section: Charts & Distribution -->
-                <div class="middle-grid">
-                    <!-- Attendance Overview -->
-                    <div class="dashboard-card attendance-overview">
-                        <div class="card-title-container">
-                            <h3>Attendance Overview</h3>
-                            <div class="card-actions">
-                                <select class="select-input">
-                                    <option>This Week</option>
-                                    <option>This Month</option>
-                                    <option>This Year</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="attendance-stats">
-                            <div class="stat-item">
-                                <span class="stat-label">On Time</span>
-                                <span class="stat-value">88%</span>
-                                <div class="progress-bar">
-                                    <div class="progress progress-success" style="width: 88%"></div>
-                                </div>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label">Late Arrival</span>
-                                <span class="stat-value">8%</span>
-                                <div class="progress-bar">
-                                    <div class="progress progress-warning" style="width: 8%"></div>
-                                </div>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label">Absent</span>
-                                <span class="stat-value">4%</span>
-                                <div class="progress-bar">
-                                    <div class="progress progress-danger" style="width: 4%"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Simulated Chart Visualizer -->
-                        <div class="chart-container">
-                            <div class="chart-bars">
-                                <div class="chart-bar-wrapper">
-                                    <div class="chart-bar">
-                                        <div class="bar-segment segment-success" style="height: 85%" title="On Time: 85%"></div>
-                                        <div class="bar-segment segment-warning" style="height: 10%" title="Late: 10%"></div>
-                                        <div class="bar-segment segment-danger" style="height: 5%" title="Absent: 5%"></div>
-                                    </div>
-                                    <span class="bar-label">Mon</span>
-                                </div>
-                                <div class="chart-bar-wrapper">
-                                    <div class="chart-bar">
-                                        <div class="bar-segment segment-success" style="height: 90%" title="On Time: 90%"></div>
-                                        <div class="bar-segment segment-warning" style="height: 7%" title="Late: 7%"></div>
-                                        <div class="bar-segment segment-danger" style="height: 3%" title="Absent: 3%"></div>
-                                    </div>
-                                    <span class="bar-label">Tue</span>
-                                </div>
-                                <div class="chart-bar-wrapper">
-                                    <div class="chart-bar">
-                                        <div class="bar-segment segment-success" style="height: 88%" title="On Time: 88%"></div>
-                                        <div class="bar-segment segment-warning" style="height: 8%" title="Late: 8%"></div>
-                                        <div class="bar-segment segment-danger" style="height: 4%" title="Absent: 4%"></div>
-                                    </div>
-                                    <span class="bar-label">Wed</span>
-                                </div>
-                                <div class="chart-bar-wrapper">
-                                    <div class="chart-bar">
-                                        <div class="bar-segment segment-success" style="height: 82%" title="On Time: 82%"></div>
-                                        <div class="bar-segment segment-warning" style="height: 12%" title="Late: 12%"></div>
-                                        <div class="bar-segment segment-danger" style="height: 6%" title="Absent: 6%"></div>
-                                    </div>
-                                    <span class="bar-label">Thu</span>
-                                </div>
-                                <div class="chart-bar-wrapper">
-                                    <div class="chart-bar">
-                                        <div class="bar-segment segment-success" style="height: 92%" title="On Time: 92%"></div>
-                                        <div class="bar-segment segment-warning" style="height: 5%" title="Late: 5%"></div>
-                                        <div class="bar-segment segment-danger" style="height: 3%" title="Absent: 3%"></div>
-                                    </div>
-                                    <span class="bar-label">Fri</span>
-                                </div>
-                            </div>
-                            <div class="chart-legend">
-                                <div class="legend-item"><span class="legend-color color-success"></span> On Time</div>
-                                <div class="legend-item"><span class="legend-color color-warning"></span> Late</div>
-                                <div class="legend-item"><span class="legend-color color-danger"></span> Absent</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Department Distribution -->
-                    <div class="dashboard-card department-distribution">
-                        <div class="card-title-container">
-                            <h3>Department Distribution</h3>
-                            <button class="icon-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-                        </div>
-                        <div class="dept-list">
-                            <div class="dept-item">
-                                <div class="dept-info">
-                                    <span class="dept-name">Engineering</span>
-                                    <span class="dept-count">420 Employees</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 34%; background-color: var(--primary);"></div>
-                                </div>
-                            </div>
-                            <div class="dept-item">
-                                <div class="dept-info">
-                                    <span class="dept-name">Sales & Marketing</span>
-                                    <span class="dept-count">310 Employees</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 25%; background-color: var(--info);"></div>
-                                </div>
-                            </div>
-                            <div class="dept-item">
-                                <div class="dept-info">
-                                    <span class="dept-name">Product & Design</span>
-                                    <span class="dept-count">185 Employees</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 15%; background-color: var(--success);"></div>
-                                </div>
-                            </div>
-                            <div class="dept-item">
-                                <div class="dept-info">
-                                    <span class="dept-name">Human Resources</span>
-                                    <span class="dept-count">65 Employees</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 8%; background-color: var(--warning);"></div>
-                                </div>
-                            </div>
-                            <div class="dept-item">
-                                <div class="dept-info">
-                                    <span class="dept-name">Finance & Legal</span>
-                                    <span class="dept-count">120 Employees</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 10%; background-color: var(--danger);"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bottom Section: Leave Requests & Recent Activities -->
-                <div class="bottom-grid">
-                    <!-- Employee Leave Requests Table -->
-                    <div class="dashboard-card leave-requests">
-                        <div class="card-title-container">
-                            <h3>Recent Leave Requests</h3>
-                            <a href="#" class="view-all-link">View All</a>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="data-table">
-                               <thead>
-                                   <tr>
-                                       <th>Employee</th>
-                                       <th>Leave Type</th>
-                                       <th>Dates</th>
-                                       <th>Days</th>
-                                       <th>Status</th>
-                                       <th>Actions</th>
-                                   </tr>
-                               </thead>
-                               <tbody>
-                                   <tr>
-                                       <td>
-                                           <div class="table-user">
-                                               <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80" alt="Employee Avatar" class="avatar-sm">
-                                               <div class="user-details">
-                                                   <span class="user-name">Marcus Vance</span>
-                                                   <span class="user-sub">Software Engineer</span>
-                                               </div>
-                                           </div>
-                                       </td>
-                                       <td>Annual Leave</td>
-                                       <td>Oct 12 - Oct 15</td>
-                                       <td>4 Days</td>
-                                       <td><span class="badge badge-warning-light text-warning">Pending</span></td>
-                                       <td>
-                                           <div class="action-buttons">
-                                               <button class="action-btn approve-btn" title="Approve"><i class="fa-solid fa-check"></i></button>
-                                               <button class="action-btn reject-btn" title="Reject"><i class="fa-solid fa-xmark"></i></button>
-                                           </div>
-                                       </td>
-                                   </tr>
-                                   <tr>
-                                       <td>
-                                           <div class="table-user">
-                                               <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80" alt="Employee Avatar" class="avatar-sm">
-                                               <div class="user-details">
-                                                   <span class="user-name">Clara Oswald</span>
-                                                   <span class="user-sub">UI/UX Designer</span>
-                                               </div>
-                                           </div>
-                                       </td>
-                                       <td>Sick Leave</td>
-                                       <td>Oct 10 - Oct 11</td>
-                                       <td>2 Days</td>
-                                       <td><span class="badge badge-success-light text-success">Approved</span></td>
-                                       <td>
-                                           <div class="action-buttons">
-                                               <button class="action-btn disabled" disabled><i class="fa-solid fa-check"></i></button>
-                                           </div>
-                                       </td>
-                                   </tr>
-                                   <tr>
-                                       <td>
-                                           <div class="table-user">
-                                               <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&q=80" alt="Employee Avatar" class="avatar-sm">
-                                               <div class="user-details">
-                                                   <span class="user-name">David Miller</span>
-                                                   <span class="user-sub">Sales Executive</span>
-                                               </div>
-                                           </div>
-                                       </td>
-                                       <td>Maternity/Paternity</td>
-                                       <td>Oct 20 - Nov 15</td>
-                                       <td>26 Days</td>
-                                       <td><span class="badge badge-warning-light text-warning">Pending</span></td>
-                                       <td>
-                                           <div class="action-buttons">
-                                               <button class="action-btn approve-btn" title="Approve"><i class="fa-solid fa-check"></i></button>
-                                               <button class="action-btn reject-btn" title="Reject"><i class="fa-solid fa-xmark"></i></button>
-                                           </div>
-                                       </td>
-                                   </tr>
-                                   <tr>
-                                       <td>
-                                           <div class="table-user">
-                                               <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=80&q=80" alt="Employee Avatar" class="avatar-sm">
-                                               <div class="user-details">
-                                                   <span class="user-name">Emma Watson</span>
-                                                   <span class="user-sub">HR Specialist</span>
-                                               </div>
-                                           </div>
-                                       </td>
-                                       <td>Casual Leave</td>
-                                       <td>Oct 08 - Oct 08</td>
-                                       <td>1 Day</td>
-                                       <td><span class="badge badge-danger-light text-danger">Rejected</span></td>
-                                       <td>
-                                           <div class="action-buttons">
-                                               <button class="action-btn disabled" disabled><i class="fa-solid fa-xmark"></i></button>
-                                           </div>
-                                       </td>
-                                   </tr>
-                               </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Recent Activities -->
-                    <div class="dashboard-card recent-activities">
-                        <div class="card-title-container">
-                            <h3>Recent Activities</h3>
-                            <button class="icon-btn"><i class="fa-solid fa-rotate"></i></button>
-                        </div>
-                        <div class="activity-timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-icon icon-success">
-                                    <i class="fa-solid fa-user-plus"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <p><strong>New Employee</strong> onboarding completed for <strong>James Wilson</strong> (Engineering).</p>
-                                    <span class="timeline-time">10 mins ago</span>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-icon icon-primary">
-                                    <i class="fa-solid fa-file-signature"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <p><strong>Sarah Jenkins</strong> approved leave request for <strong>Clara Oswald</strong>.</p>
-                                    <span class="timeline-time">1 hour ago</span>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-icon icon-warning">
-                                    <i class="fa-solid fa-triangle-exclamation"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <p>System alert: <strong>5 employees</strong> missed check-in today without prior notice.</p>
-                                    <span class="timeline-time">3 hours ago</span>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-icon icon-info">
-                                    <i class="fa-solid fa-circle-info"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <p>New policy document <strong>"Remote Work Guidelines 2024"</strong> published.</p>
-                                    <span class="timeline-time">Yesterday</span>
-                                </div>
-                            </div>
-                        </div>
+                        <button style="width: 100%; padding: 0.75rem; background-color: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); font-weight: 600; cursor: pointer; transition: var(--transition);" onmouseover="this.style.backgroundColor='var(--background)'" onmouseout="this.style.backgroundColor='var(--surface)'">
+                            <i class="fa-solid fa-bullhorn" style="margin-right: 0.5rem;"></i> Post Announcement
+                        </button>
                     </div>
                 </div>
             </div>
         </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <i class="fa-solid fa-people-roof"></i>
+                        <span>HRMS Portal</span>
+                    </div>
+                    <p class="footer-copyright">© 2025 HRMS Portal. All rights reserved.</p>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Support Center</a></li>
+                    <li><a href="#">Documentation</a></li>
+                </ul>
+                <div class="footer-right">
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span>All Systems Operational</span>
+                    </div>
+                    <div class="system-version">v1.4.2</div>
+                </div>
+            </div>
+        </footer>
     </div>
 
-    <!-- Simple Sidebar Toggle Script -->
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const sidebar = document.getElementById('sidebar');
-
-        menuToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-        });
-
-        // Close sidebar when clicking outside on mobile
-        document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 1024) {
-                if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
-                    sidebar.classList.remove('active');
-                }
-            }
-        });
-    </script>
 </body>
 </html>
