@@ -1,0 +1,268 @@
+/* ── Header Component Styles ─────────────────────────────────────────── */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--color-primary, #1a365d);
+  color: var(--color-white, #ffffff);
+  box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--spacing-sm, 0.75rem) var(--spacing-md, 1rem);
+}
+
+/* ── Branding / Logo ───────────────────────────────────────────────── */
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs, 0.5rem);
+  text-decoration: none;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.header__brand:hover,
+.header__brand:focus-visible {
+  opacity: 0.9;
+}
+
+.header__logo {
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-accent, #3182ce);
+  border-radius: var(--radius-md, 8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--color-white, #ffffff);
+  user-select: none;
+}
+
+.header__app-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+/* ── Desktop Navigation ────────────────────────────────────────────── */
+
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs, 0.5rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-xs, 0.5rem) var(--spacing-sm, 0.75rem);
+  border-radius: var(--radius-sm, 6px);
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.header__nav-link:hover,
+.header__nav-link:focus-visible {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-white, #ffffff);
+}
+
+.header__nav-link.active {
+  background-color: rgba(255, 255, 255, 0.18);
+  color: var(--color-white, #ffffff);
+  font-weight: 600;
+}
+
+/* ── Hamburger Menu Button ─────────────────────────────────────────── */
+
+.header__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-sm, 6px);
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.header__hamburger:hover,
+.header__hamburger:focus-visible {
+  background-color: rgba(255, 255, 255, 0.12);
+  outline: none;
+}
+
+.header__hamburger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-white, #ffffff);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+/* Hamburger → X animation when open */
+.header__hamburger--open .header__hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.header__hamburger--open .header__hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.header__hamburger--open .header__hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile Overlay Navigation ─────────────────────────────────────── */
+
+.header__mobile-nav {
+  display: none;
+}
+
+.header__mobile-nav--open {
+  display: block;
+  background-color: var(--color-primary, #1a365d);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header__mobile-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: var(--spacing-xs, 0.5rem) 0;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header__mobile-nav-item {
+  margin: 0;
+}
+
+.header__mobile-nav-link {
+  display: block;
+  padding: var(--spacing-sm, 0.75rem) var(--spacing-md, 1rem);
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: var(--radius-sm, 6px);
+  margin: 2px var(--spacing-md, 1rem);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.header__mobile-nav-link:hover,
+.header__mobile-nav-link:focus-visible {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-white, #ffffff);
+}
+
+.header__mobile-nav-link.active {
+  background-color: rgba(255, 255, 255, 0.18);
+  color: var(--color-white, #ffffff);
+  font-weight: 600;
+}
+
+/* ── Responsive: Tablet (≤1024px) ──────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .header__nav-link {
+    padding: var(--spacing-xs, 0.5rem) var(--spacing-xs, 0.5rem);
+    font-size: 0.85rem;
+  }
+
+  .header__nav-list {
+    gap: 2px;
+  }
+}
+
+/* ── Responsive: Mobile (≤768px) ───────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .header__container {
+    padding: var(--spacing-sm, 0.75rem) var(--spacing-sm, 0.75rem);
+  }
+
+  /* Hide desktop nav, show hamburger */
+  .header__nav {
+    display: none;
+  }
+
+  .header__hamburger {
+    display: flex;
+  }
+
+  /* Mobile nav is controlled by --open modifier */
+  .header__mobile-nav--open {
+    display: block;
+    animation: header-slide-down 0.25s ease-out;
+  }
+
+  .header__mobile-nav-link {
+    margin: 2px var(--spacing-sm, 0.75rem);
+  }
+}
+
+/* ── Slide-down animation for mobile menu ──────────────────────────── */
+
+@keyframes header-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Skip-to-content (accessibility) ───────────────────────────────── */
+
+.header__skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--spacing-md, 1rem);
+  padding: var(--spacing-xs, 0.5rem) var(--spacing-sm, 0.75rem);
+  background-color: var(--color-white, #ffffff);
+  color: var(--color-primary, #1a365d);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: var(--radius-sm, 6px);
+  z-index: 1001;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.header__skip-link:focus {
+  top: var(--spacing-xs, 0.5rem);
+}

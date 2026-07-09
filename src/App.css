@@ -1,0 +1,77 @@
+/* ============================================================
+   App.css — Root application layout styles
+   Provides the flex-column shell so Header stays at top,
+   Footer sticks to bottom, and page content fills the middle.
+   ============================================================ */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg, #f5f6fa);
+  color: var(--color-text, #1e293b);
+}
+
+/* Main content area — grows to push footer down */
+.app__main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--content-max-width, 1280px);
+  margin-inline: auto;
+  padding: var(--spacing-lg, 2rem) var(--spacing-md, 1.5rem);
+  box-sizing: border-box;
+}
+
+/* ── Responsive adjustments ─────────────────────────────── */
+
+/* Tablet (769px – 1024px) */
+@media (max-width: 1024px) {
+  .app__main {
+    padding: var(--spacing-md, 1.5rem) var(--spacing-sm, 1rem);
+  }
+}
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+  .app__main {
+    padding: var(--spacing-sm, 1rem) var(--spacing-xs, 0.75rem);
+  }
+}
+
+/* ── Skip-to-content accessibility link ─────────────────── */
+.app__skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 1000;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-primary, #2563eb);
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-sm, 4px);
+  transition: top 0.2s ease;
+}
+
+.app__skip-link:focus {
+  top: var(--spacing-xs, 0.75rem);
+  left: var(--spacing-xs, 0.75rem);
+}
+
+/* ── Page transition wrapper (optional) ─────────────────── */
+.app__page-enter {
+  animation: appFadeIn 0.25s ease-out;
+}
+
+@keyframes appFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
