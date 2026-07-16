@@ -1,0 +1,572 @@
+/* ============================================================
+   App.css — Global CSS Reset, Design Tokens & Base Typography
+   HRMS Dashboard · SCRUM-180
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. CSS Custom Properties (Design Tokens)
+   ------------------------------------------------------------ */
+:root {
+  /* Brand Colors */
+  --color-primary:         #2563eb;
+  --color-primary-dark:    #1d4ed8;
+  --color-primary-light:   #eff6ff;
+  --color-primary-muted:   #bfdbfe;
+
+  --color-secondary:       #7c3aed;
+  --color-secondary-light: #f5f3ff;
+
+  --color-accent:          #0891b2;
+  --color-accent-light:    #ecfeff;
+
+  /* Semantic / Status Colors */
+  --color-success:         #16a34a;
+  --color-success-light:   #f0fdf4;
+  --color-success-muted:   #bbf7d0;
+
+  --color-warning:         #d97706;
+  --color-warning-light:   #fffbeb;
+  --color-warning-muted:   #fde68a;
+
+  --color-danger:          #dc2626;
+  --color-danger-light:    #fef2f2;
+  --color-danger-muted:    #fecaca;
+
+  --color-info:            #0284c7;
+  --color-info-light:      #f0f9ff;
+  --color-info-muted:      #bae6fd;
+
+  /* Neutral / Gray Scale */
+  --color-gray-50:         #f9fafb;
+  --color-gray-100:        #f3f4f6;
+  --color-gray-200:        #e5e7eb;
+  --color-gray-300:        #d1d5db;
+  --color-gray-400:        #9ca3af;
+  --color-gray-500:        #6b7280;
+  --color-gray-600:        #4b5563;
+  --color-gray-700:        #374151;
+  --color-gray-800:        #1f2937;
+  --color-gray-900:        #111827;
+
+  /* Surface / Background */
+  --color-bg-app:          #f1f5f9;
+  --color-bg-surface:      #ffffff;
+  --color-bg-subtle:       #f8fafc;
+  --color-bg-overlay:      rgba(17, 24, 39, 0.45);
+
+  /* Text */
+  --color-text-primary:    #111827;
+  --color-text-secondary:  #4b5563;
+  --color-text-tertiary:   #9ca3af;
+  --color-text-inverse:    #ffffff;
+  --color-text-link:       #2563eb;
+  --color-text-link-hover: #1d4ed8;
+
+  /* Borders */
+  --color-border:          #e5e7eb;
+  --color-border-strong:   #d1d5db;
+  --color-border-focus:    #2563eb;
+
+  /* Header */
+  --color-header-bg:       #ffffff;
+  --color-header-border:   #e5e7eb;
+  --color-header-height:   64px;
+
+  /* Footer */
+  --color-footer-bg:       #ffffff;
+  --color-footer-border:   #e5e7eb;
+  --color-footer-height:   52px;
+
+  /* --------------------------------------------------------
+     Spacing Scale (4-point grid)
+     -------------------------------------------------------- */
+  --space-0:    0;
+  --space-1:    4px;
+  --space-2:    8px;
+  --space-3:    12px;
+  --space-4:    16px;
+  --space-5:    20px;
+  --space-6:    24px;
+  --space-7:    28px;
+  --space-8:    32px;
+  --space-10:   40px;
+  --space-12:   48px;
+  --space-14:   56px;
+  --space-16:   64px;
+  --space-20:   80px;
+  --space-24:   96px;
+
+  /* --------------------------------------------------------
+     Typography
+     -------------------------------------------------------- */
+  --font-family-sans:
+    'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji';
+  --font-family-mono:
+    'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+
+  /* Font Sizes */
+  --font-size-xs:   11px;
+  --font-size-sm:   13px;
+  --font-size-base: 14px;
+  --font-size-md:   15px;
+  --font-size-lg:   16px;
+  --font-size-xl:   18px;
+  --font-size-2xl:  20px;
+  --font-size-3xl:  24px;
+  --font-size-4xl:  28px;
+  --font-size-5xl:  32px;
+  --font-size-6xl:  40px;
+
+  /* Font Weights */
+  --font-weight-regular:   400;
+  --font-weight-medium:    500;
+  --font-weight-semibold:  600;
+  --font-weight-bold:      700;
+  --font-weight-extrabold: 800;
+
+  /* Line Heights */
+  --line-height-tight:   1.2;
+  --line-height-snug:    1.375;
+  --line-height-normal:  1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose:   2;
+
+  /* Letter Spacing */
+  --letter-spacing-tight:  -0.025em;
+  --letter-spacing-normal:  0;
+  --letter-spacing-wide:    0.025em;
+  --letter-spacing-wider:   0.05em;
+  --letter-spacing-widest:  0.1em;
+
+  /* --------------------------------------------------------
+     Border Radius
+     -------------------------------------------------------- */
+  --radius-none:   0;
+  --radius-sm:     4px;
+  --radius-md:     6px;
+  --radius-lg:     8px;
+  --radius-xl:     12px;
+  --radius-2xl:    16px;
+  --radius-3xl:    24px;
+  --radius-full:   9999px;
+
+  /* --------------------------------------------------------
+     Shadows
+     -------------------------------------------------------- */
+  --shadow-none:   none;
+  --shadow-xs:     0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm:     0 1px 3px 0 rgba(0, 0, 0, 0.08),
+                   0 1px 2px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md:     0 4px 6px -1px rgba(0, 0, 0, 0.08),
+                   0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg:     0 10px 15px -3px rgba(0, 0, 0, 0.08),
+                   0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  --shadow-xl:     0 20px 25px -5px rgba(0, 0, 0, 0.08),
+                   0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --shadow-2xl:    0 25px 50px -12px rgba(0, 0, 0, 0.18);
+  --shadow-inner:  inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --shadow-focus:  0 0 0 3px rgba(37, 99, 235, 0.25);
+
+  /* --------------------------------------------------------
+     Transitions
+     -------------------------------------------------------- */
+  --transition-fast:    100ms ease;
+  --transition-base:    150ms ease;
+  --transition-smooth:  200ms ease;
+  --transition-slow:    300ms ease;
+  --transition-slower:  400ms ease;
+
+  /* --------------------------------------------------------
+     Z-Index Scale
+     -------------------------------------------------------- */
+  --z-below:    -1;
+  --z-base:      0;
+  --z-raised:    10;
+  --z-dropdown:  100;
+  --z-sticky:    200;
+  --z-overlay:   300;
+  --z-modal:     400;
+  --z-toast:     500;
+  --z-tooltip:   600;
+
+  /* --------------------------------------------------------
+     Layout
+     -------------------------------------------------------- */
+  --layout-max-width:       1440px;
+  --layout-content-width:   1280px;
+  --layout-sidebar-width:   240px;
+  --layout-gutter:          var(--space-6);
+}
+
+/* ------------------------------------------------------------
+   2. Modern CSS Reset
+   ------------------------------------------------------------ */
+
+/*
+ * Box-sizing: border-box for all elements.
+ * Prevents width/padding surprises.
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove default link underline; color inherits */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Images & media are block-level and responsive by default */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Form elements inherit font */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove default button styles */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Avoid text overflow in all elements */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Remove default table spacing */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-6) 0;
+}
+
+/* ------------------------------------------------------------
+   3. Base / Root Styles
+   ------------------------------------------------------------ */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-app);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+/* ------------------------------------------------------------
+   4. Base Typography
+   ------------------------------------------------------------ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h1 { font-size: var(--font-size-5xl); font-weight: var(--font-weight-bold); }
+h2 { font-size: var(--font-size-4xl); }
+h3 { font-size: var(--font-size-3xl); }
+h4 { font-size: var(--font-size-2xl); }
+h5 { font-size: var(--font-size-xl); }
+h6 { font-size: var(--font-size-lg); }
+
+p {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+}
+
+small {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+}
+
+strong,
+b {
+  font-weight: var(--font-weight-semibold);
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+}
+
+code {
+  background-color: var(--color-gray-100);
+  color: var(--color-secondary);
+  padding: 2px var(--space-1);
+  border-radius: var(--radius-sm);
+}
+
+pre {
+  background-color: var(--color-gray-900);
+  color: var(--color-gray-100);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  line-height: var(--line-height-relaxed);
+}
+
+blockquote {
+  border-left: 4px solid var(--color-primary);
+  padding-left: var(--space-4);
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+/* ------------------------------------------------------------
+   5. Base Link Styles
+   ------------------------------------------------------------ */
+a:not([class]) {
+  color: var(--color-text-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition-base);
+}
+
+a:not([class]):hover {
+  color: var(--color-text-link-hover);
+}
+
+a:not([class]):focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ------------------------------------------------------------
+   6. Focus Styles (Accessibility)
+   ------------------------------------------------------------ */
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ------------------------------------------------------------
+   7. Selection
+   ------------------------------------------------------------ */
+::selection {
+  background-color: var(--color-primary-muted);
+  color: var(--color-primary-dark);
+}
+
+/* ------------------------------------------------------------
+   8. Scrollbar (Webkit — subtle enterprise style)
+   ------------------------------------------------------------ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-gray-100);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+  border-radius: var(--radius-full);
+  transition: background var(--transition-base);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-400);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gray-300) var(--color-gray-100);
+}
+
+/* ------------------------------------------------------------
+   9. App Layout Shell
+   ------------------------------------------------------------ */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-app);
+  padding-top: var(--color-header-height);
+}
+
+/* ------------------------------------------------------------
+   10. Utility Classes (minimal — only globally needed ones)
+   ------------------------------------------------------------ */
+
+/* Visually hidden (screen-reader only) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Truncate text with ellipsis */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Flex helpers */
+.flex        { display: flex; }
+.flex-col    { display: flex; flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-2       { gap: var(--space-2); }
+.gap-4       { gap: var(--space-4); }
+
+/* Text color utilities */
+.text-primary   { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-tertiary  { color: var(--color-text-tertiary); }
+.text-success   { color: var(--color-success); }
+.text-warning   { color: var(--color-warning); }
+.text-danger    { color: var(--color-danger); }
+.text-info      { color: var(--color-info); }
+
+/* Font weight utilities */
+.font-medium   { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold     { font-weight: var(--font-weight-bold); }
+
+/* ------------------------------------------------------------
+   11. Responsive Breakpoints (reference comments only)
+   ------------------------------------------------------------ */
+/*
+  Breakpoints used across component CSS files:
+  --bp-sm:  480px   (small phones)
+  --bp-md:  768px   (tablets)
+  --bp-lg:  1024px  (small desktops)
+  --bp-xl:  1280px  (large desktops)
+  --bp-2xl: 1536px  (wide screens)
+
+  Usage pattern in component CSS:
+  @media (max-width: 768px) { ... }
+  @media (min-width: 1024px) { ... }
+*/
+
+/* ------------------------------------------------------------
+   12. Print Styles
+   ------------------------------------------------------------ */
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

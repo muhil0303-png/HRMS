@@ -1,0 +1,544 @@
+/* ── src/components/Header.css ── */
+
+/* ============================================================
+   CSS Custom Properties (consumed from App.css tokens)
+   ============================================================ */
+
+/* ============================================================
+   Header Shell
+   ============================================================ */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 64px;
+  background-color: var(--color-surface, #ffffff);
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-6, 1.5rem);
+  box-sizing: border-box;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  gap: var(--spacing-4, 1rem);
+}
+
+/* ============================================================
+   Branding / Logo
+   ============================================================ */
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 0.5rem);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.header__brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--color-primary, #2563eb);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  user-select: none;
+}
+
+.header__brand-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text-primary, #0f172a);
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+}
+
+.header__brand-name span {
+  color: var(--color-primary, #2563eb);
+}
+
+/* ============================================================
+   Primary Navigation
+   ============================================================ */
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1, 0.25rem);
+  flex: 1;
+  justify-content: center;
+}
+
+.header__nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary, #475569);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.header__nav-link:hover {
+  color: var(--color-primary, #2563eb);
+  background-color: var(--color-primary-subtle, #eff6ff);
+}
+
+.header__nav-link:focus-visible {
+  outline: 2px solid var(--color-primary, #2563eb);
+  outline-offset: 2px;
+}
+
+.header__nav-link.active {
+  color: var(--color-primary, #2563eb);
+  background-color: var(--color-primary-subtle, #eff6ff);
+  font-weight: 600;
+}
+
+.header__nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 1.75rem);
+  height: 2px;
+  background-color: var(--color-primary, #2563eb);
+  border-radius: 2px 2px 0 0;
+}
+
+/* ============================================================
+   Right-side Actions
+   ============================================================ */
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 0.5rem);
+  flex-shrink: 0;
+}
+
+/* ── Notification Bell ── */
+.header__notification-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--color-text-secondary, #475569);
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  padding: 0;
+}
+
+.header__notification-btn:hover {
+  background-color: var(--color-primary-subtle, #eff6ff);
+  color: var(--color-primary, #2563eb);
+  border-color: var(--color-primary-light, #bfdbfe);
+}
+
+.header__notification-btn:focus-visible {
+  outline: 2px solid var(--color-primary, #2563eb);
+  outline-offset: 2px;
+}
+
+.header__notification-btn svg {
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.header__notification-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-danger, #ef4444);
+  border: 2px solid var(--color-surface, #ffffff);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ── User Avatar / Profile ── */
+.header__user {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 0.5rem);
+  padding: 0.25rem 0.625rem 0.25rem 0.25rem;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  cursor: pointer;
+  background: transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  text-decoration: none;
+}
+
+.header__user:hover {
+  background-color: var(--color-primary-subtle, #eff6ff);
+  border-color: var(--color-primary-light, #bfdbfe);
+}
+
+.header__user:focus-visible {
+  outline: 2px solid var(--color-primary, #2563eb);
+  outline-offset: 2px;
+}
+
+.header__avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary, #2563eb) 0%, #7c3aed 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  flex-shrink: 0;
+  user-select: none;
+  overflow: hidden;
+}
+
+.header__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.header__user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.header__user-name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-primary, #0f172a);
+  white-space: nowrap;
+}
+
+.header__user-role {
+  font-size: 0.6875rem;
+  font-weight: 400;
+  color: var(--color-text-muted, #94a3b8);
+  white-space: nowrap;
+}
+
+.header__user-chevron {
+  width: 14px;
+  height: 14px;
+  color: var(--color-text-muted, #94a3b8);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.header__user:hover .header__user-chevron {
+  color: var(--color-primary, #2563eb);
+}
+
+/* ============================================================
+   Hamburger Menu Button (mobile only)
+   ============================================================ */
+.header__hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--color-text-secondary, #475569);
+  padding: 0;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.header__hamburger:hover {
+  background-color: var(--color-primary-subtle, #eff6ff);
+  color: var(--color-primary, #2563eb);
+}
+
+.header__hamburger:focus-visible {
+  outline: 2px solid var(--color-primary, #2563eb);
+  outline-offset: 2px;
+}
+
+.header__hamburger svg {
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+/* Animated hamburger bars */
+.header__hamburger-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+
+.header__hamburger-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  pointer-events: none;
+}
+
+/* Open state — X icon */
+.header__hamburger[aria-expanded="true"] .header__hamburger-bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.header__hamburger[aria-expanded="true"] .header__hamburger-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.header__hamburger[aria-expanded="true"] .header__hamburger-bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ============================================================
+   Mobile Drawer / Nav Overlay
+   ============================================================ */
+.header__mobile-nav {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(2px);
+  animation: fadeInOverlay 0.2s ease forwards;
+}
+
+.header__mobile-nav.open {
+  display: block;
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.header__mobile-nav-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--color-surface, #ffffff);
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-4, 1rem) var(--spacing-6, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1, 0.25rem);
+  animation: slideDownPanel 0.22s ease forwards;
+}
+
+@keyframes slideDownPanel {
+  from { transform: translateY(-8px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.header__mobile-nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text-secondary, #475569);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.header__mobile-nav-link:hover {
+  color: var(--color-primary, #2563eb);
+  background-color: var(--color-primary-subtle, #eff6ff);
+}
+
+.header__mobile-nav-link:focus-visible {
+  outline: 2px solid var(--color-primary, #2563eb);
+  outline-offset: 2px;
+}
+
+.header__mobile-nav-link.active {
+  color: var(--color-primary, #2563eb);
+  background-color: var(--color-primary-subtle, #eff6ff);
+  font-weight: 600;
+}
+
+.header__mobile-divider {
+  height: 1px;
+  background-color: var(--color-border, #e2e8f0);
+  margin: var(--spacing-2, 0.5rem) 0;
+}
+
+.header__mobile-user {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3, 0.75rem);
+  padding: 0.625rem 0.875rem;
+  border-radius: 8px;
+  background-color: var(--color-bg, #f8fafc);
+  margin-top: var(--spacing-1, 0.25rem);
+}
+
+.header__mobile-user-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.header__mobile-user-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary, #0f172a);
+}
+
+.header__mobile-user-role {
+  font-size: 0.75rem;
+  color: var(--color-text-muted, #94a3b8);
+}
+
+/* ============================================================
+   Responsive Breakpoints
+   ============================================================ */
+
+/* ── Tablet: 1024px and below ── */
+@media (max-width: 1024px) {
+  .header__nav {
+    gap: 0;
+  }
+
+  .header__nav-link {
+    padding: 0.375rem 0.625rem;
+    font-size: 0.8125rem;
+  }
+
+  .header__user-info {
+    display: none;
+  }
+
+  .header__user {
+    padding: 0.25rem;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+  }
+
+  .header__user:hover {
+    background-color: var(--color-primary-subtle, #eff6ff);
+    border-radius: 50%;
+  }
+
+  .header__user-chevron {
+    display: none;
+  }
+
+  .header__avatar {
+    width: 34px;
+    height: 34px;
+    font-size: 0.8125rem;
+  }
+}
+
+/* ── Mobile: 768px and below ── */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 var(--spacing-4, 1rem);
+  }
+
+  .header__nav {
+    display: none;
+  }
+
+  .header__hamburger {
+    display: inline-flex;
+  }
+
+  .header__notification-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .header__notification-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .header__user {
+    padding: 0.25rem;
+    border: none;
+    border-radius: 50%;
+  }
+
+  .header__user-info,
+  .header__user-chevron {
+    display: none;
+  }
+
+  .header__avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 0.75rem;
+  }
+}
+
+/* ── Small Mobile: 480px and below ── */
+@media (max-width: 480px) {
+  .header {
+    height: 56px;
+    padding: 0 var(--spacing-3, 0.75rem);
+  }
+
+  .header__mobile-nav {
+    top: 56px;
+  }
+
+  .header__brand-name {
+    font-size: 1rem;
+  }
+
+  .header__brand-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 0.875rem;
+  }
+
+  .header__notification-btn {
+    display: none;
+  }
+}
