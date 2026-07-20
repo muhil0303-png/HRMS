@@ -33,6 +33,7 @@ export interface KpiMetric {
   icon: string; // Icon identifier (e.g., 'users', 'user-plus', 'award', 'heart-off', 'calendar')
   color: ThemeColor;
   type: KpiMetricType;
+  description?: string; // Optional description
 }
 
 /**

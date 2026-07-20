@@ -221,108 +221,143 @@ export default function InsightsSection({ insights: initialInsights, onActionExe
           <div>
             <CardTitle className="text-xl font-bold text-slate-900 flex items-center gap-2">
               <Sparkles className="h-5 w-5 text-primary" />
-              HR Insights & Action Items
+              HR Insights
             </CardTitle>
-            <CardDescription className="text-sm text-slate-500">
-              AI-driven recommendations and critical compliance tasks requiring attention.
+            <CardDescription>
+              AI-driven recommendations, compliance alerts, and actionable items.
             </CardDescription>
           </div>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={handleReset}
-            className="self-start sm:self-auto text-xs flex items-center gap-1.5 border-slate-200 text-slate-600 hover:bg-slate-50"
-            title="Reset demo data"
-          >
-            <RefreshCw className="h-3.5 w-3.5" />
-            Reset Actions
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleReset}
+              className="h-9 text-slate-600 border-slate-200 hover:bg-slate-50"
+            >
+              <RefreshCw className="h-4 w-4 mr-2" />
+              Reset Demo
+            </Button>
+          </div>
         </div>
-      </CardHeader>
 
-      <CardContent className="space-y-6">
-        {/* Filters and Search Controls */}
-        <div className="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center justify-between">
+        {/* Filters */}
+        <div className="flex flex-col md:flex-row gap-3 mt-4">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
             <Input
-              placeholder="Search insights, impacts, or descriptions..."
+              placeholder="Search insights..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 bg-slate-50/50 border-slate-200 focus:bg-white"
+              className="pl-9"
             />
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex gap-2">
             <select
               value={selectedPriority}
               onChange={(e) => setSelectedPriority(e.target.value)}
-              className="h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className="h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <option value="all">All Priorities</option>
-              <option value="high">High Priority</option>
-              <option value="medium">Medium Priority</option>
-              <option value="low">Low Priority</option>
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
             </select>
-
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className="h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <option value="all">All Categories</option>
-              <option value="recruitment">Recruitment</option>
               <option value="retention">Retention</option>
-              <option value="training">Training</option>
               <option value="compliance">Compliance</option>
+              <option value="recruitment">Recruitment</option>
+              <option value="training">Training</option>
               <option value="performance">Performance</option>
             </select>
           </div>
         </div>
+      </CardHeader>
 
-        {/* Insights List */}
-        <div className="space-y-4">
-          {filteredInsights.length === 0 ? (
-            <div className="text-center py-12 border border-dashed border-slate-200 rounded-lg">
-              <p className="text-slate-500 text-sm">No insights found matching your filters.</p>
-            </div>
-          ) : (
-            filteredInsights.map((item) => (
+      <CardContent>
+        {filteredInsights.length === 0 ? (
+          <div className="text-center py-12 border border-dashed border-slate-200 rounded-lg">
+            <p className="text-slate-500 text-sm">No insights found matching your filters.</p>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {filteredInsights.map((insight) => (
               <div
-                key={item.id}
+                key={insight.id}
                 className={cn(
-                  "p-5 rounded-xl border transition-all duration-200 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between",
-                  getCategoryBg(item.category)
+                  "p-5 rounded-xl border transition-all duration-200 flex flex-col md:flex-row md:items-start gap-4",
+                  getCategoryBg(insight.category)
                 )}
               >
-                <div className="flex gap-4 items-start flex-1">
-                  <div className="p-2.5 rounded-lg bg-white shadow-sm border border-slate-100 shrink-0">
-                    {getCategoryIcon(item.category)}
-                  </div>
-                  <div className="space-y-1.5 flex-1">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <h4 className="font-semibold text-slate-900 text-base leading-snug">
-                        {item.title}
-                      </h4>
-                      <Badge className={cn("text-[10px] px-2 py-0.5 font-medium uppercase tracking-wider border", getPriorityBadgeStyles(item.priority))}>
-                        {item.priority}
-                      </Badge>
-                      <Badge variant="outline" className="text-[10px] px-2 py-0.5 font-medium uppercase tracking-wider bg-white border-slate-200 text-slate-600">
-                        {item.category}
-                      </Badge>
-                    </div>
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      {item.description}
-                    </p>
-                    <div className="flex items-start gap-1.5 text-xs text-slate-500 bg-white/50 p-2 rounded border border-slate-100/50">
-                      <span className="font-semibold text-slate-700 shrink-0">Impact:</span>
-                      <span>{item.impact}</span>
-                    </div>
+                <div className="p-2.5 rounded-lg bg-white shadow-sm self-start">
+                  {getCategoryIcon(insight.category)}
+                </div>
 
-                    {/* Progress Bar */}
-                    {item.progress !== undefined && (
-                      <div className="space-y-1 pt-2 max-w-md">
-                        <div className="flex justify-between text-xs text-slate-500">
-                          <span>Progress</span>
-                          <span className="font-medium">{item.progress}%</span>
-                        </div>
-                        <div className="
+                <div className="flex-1 space-y-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h4 className="font-semibold text-slate-900 text-base">{insight.title}</h4>
+                    <Badge variant="outline" className={cn("capitalize", getPriorityBadgeStyles(insight.priority))}>
+                      {insight.priority}
+                    </Badge>
+                    <Badge variant="secondary" className="capitalize text-xs">
+                      {insight.category}
+                    </Badge>
+                  </div>
+
+                  <p className="text-sm text-slate-600 leading-relaxed">{insight.description}</p>
+
+                  {insight.impact && (
+                    <div className="text-xs text-slate-500 flex items-start gap-1.5 bg-white/50 p-2 rounded-md border border-slate-100">
+                      <span className="font-semibold text-slate-700 shrink-0">Impact:</span>
+                      <span>{insight.impact}</span>
+                    </div>
+                  )}
+
+                  {insight.progress !== undefined && (
+                    <div className="space-y-1 pt-1">
+                      <div className="flex justify-between text-xs text-slate-500">
+                        <span>Progress</span>
+                        <span>{insight.progress}%</span>
+                      </div>
+                      <div className="w-full bg-slate-200/60 rounded-full h-1.5 overflow-hidden">
+                        <div
+                          className={cn(
+                            "h-full transition-all duration-500",
+                            insight.status === 'completed' ? 'bg-emerald-500' : 'bg-primary'
+                          )}
+                          style={{ width: `${insight.progress}%` }}
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex items-center md:self-center shrink-0">
+                  {insight.status === 'completed' ? (
+                    <div className="flex items-center gap-1.5 text-emerald-600 bg-emerald-50 border border-emerald-100 px-3 py-1.5 rounded-lg text-sm font-medium">
+                      <Check className="h-4 w-4" />
+                      Completed
+                    </div>
+                  ) : (
+                    <Button
+                      size="sm"
+                      onClick={() => handleAction(insight.id)}
+                      className="w-full md:w-auto"
+                    >
+                      {insight.actionLabel || 'Take Action'}
+                      <ArrowUpRight className="h-4 w-4 ml-1" />
+                    </Button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
