@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ============================================================
    App.css — Global CSS Reset, Design Tokens & Base Typography
    HRMS Dashboard · SCRUM-180
