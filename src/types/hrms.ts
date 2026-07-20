@@ -105,6 +105,28 @@ export interface HrInsight {
 /**
  * Employment status of an employee.
  */
+export type EmployeeStatus = 'active' | 'inactive' | 'on_leave' | 'terminated';
+
+/**
+ * Filters for the HRMS Dashboard.
+ */
+export interface DashboardFilters {
+  department: string;
+  timeRange: string;
+  searchQuery: string;
+}
+
+/**
+ * Summary data structure for the HRMS Dashboard.
+ */
+export interface DashboardSummary {
+  kpis: KpiMetric[];
+  monthlyData: MonthlyDataPoint[];
+  departmentData: DepartmentDataPoint[];
+  recruitmentPipeline: RecruitmentPipeline[];
+  trainingProgress: TrainingProgress[];
+  insights: HrInsight[];
+}
 export type EmployeeStatus = 'active' | 'onleave' | 'terminated' | 'suspended';
 
 /**

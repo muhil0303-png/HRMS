@@ -21,12 +21,15 @@ import type { HrInsight, InsightPriority, InsightCategory } from '../../types/hr
 type LocalCategory = InsightCategory | 'recruitment' | 'training' | 'retention' | 'compliance' | 'performance';
 type LocalPriority = InsightPriority | 'high' | 'medium' | 'low';
 
-interface ExtendedInsight extends Omit<HrInsight, 'category' | 'priority'> {
+interface ExtendedInsight extends Omit<HrInsight, 'category' | 'priority' | 'actionableStep' | 'createdAt' | 'isResolved'> {
   category: LocalCategory;
   priority: LocalPriority;
   actionLabel?: string;
   progress?: number;
   status?: 'in_progress' | 'completed';
+  actionableStep?: string;
+  createdAt?: string;
+  isResolved?: boolean;
 }
 
 interface InsightsSectionProps {
